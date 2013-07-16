@@ -1,0 +1,18 @@
+{
+  "name": "oj-github-button",
+  "version": "0.0.1",
+  "main": "src/oj.GitHubButton.js",
+  "description": "GitHub buttons plugin for OJ",
+  "homepage": "http://ojjs.org/docs#GitHubButton",
+  "keywords": [
+    "oj",
+    "plugin",
+    "github",
+    "button"
+  ],
+  "author": "Evan Moran <evan@evanmoran.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ojjs/oj.GitHubButton.git"
+  }
+}
