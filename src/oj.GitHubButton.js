@@ -48,10 +48,9 @@ var plugin = function(oj, settings){
         var size = '', count = '', user = '', repo = '', type = '';
         if (!this_.user)
           throw new Error('oj.GitHubButton: user is not specified');
-        if (!this_.repo)
-          throw new Error('oj.GitHubButton: repo is not specified');
         user = 'user=' + this_.user
-        repo = '&repo=' + this_.repo
+        if (this_.repo)
+          repo = '&repo=' + this_.repo
         if (this_.size)
           size = '&size=' + this_.size
         if (this_.showCount)
@@ -75,16 +74,17 @@ var plugin = function(oj, settings){
     },
 
     properties: {
+      user: 'evanmoran',
+      repo: null,
       type: { // watch, follow, fork, (star)==watch
-        get:function(){return this._type || 'watch';},
+        // Default to follow if no repro is set
+        get:function(){return this._type || (this.repo == null ? 'follow' : 'watch');},
         set:function(v){
           if(!v || v == 'star')
             v = 'watch';
           this._type = v;
         }
       },
-      user: 'ojjs',
-      repo: 'oj',
       showCount: true,
       size:{              // null or large
         get:function(){return this._size;},
