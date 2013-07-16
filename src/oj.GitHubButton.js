@@ -91,7 +91,7 @@ var plugin = function(oj, settings){
         set:function(v){this._size = v;}
       },
       width:{            // pixals if specified. Otherwise is calculate from settings
-        get:function(){return this._width || _widthFromType(this.type,this.showCount)},
+        get:function(){return this._width || _widthFromType(this.type,this.showCount,this.size)},
         set:function(v){this._width = v;}
       },
       height:{           // pixals if specified. Otherwise is calculate from settings
@@ -112,19 +112,21 @@ if (typeof oj != 'undefined')
 if (typeof module != 'undefined' && typeof module.exports != 'undefined')
   module.exports = plugin;
 
-_widthFromType = function(type, showCount){
+_widthFromType = function(type, showCount, size){
+  w = 0;
   if (type == 'watch' && showCount == false)
-    return 62;
+    w = 62;
   else if (type == 'watch' && showCount == true)
-    return 110;
+    w = 110;
   else if (type == 'fork' && showCount == false)
-    return 53;
+    w = 53;
   else if (type == 'fork' && showCount == true)
-    return 95;
+    w = 95;
   else if (type == 'follow' && showCount == false)
-    return 132;
+    w = 132;
   else if (type == 'follow' && showCount == true)
-    return 165;
+    w = 165;
+  w += size == 'large' ? 30 : 0;
 }
 
 
