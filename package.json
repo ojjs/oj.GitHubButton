@@ -1,9 +1,9 @@
 {
   "name": "oj-github-button",
-  "version": "0.0.2",
-  "main": "src/oj.GitHubButton.js",
+  "version": "0.0.3",
+  "main": "oj.GitHubButton.js",
   "description": "GitHub buttons plugin for OJ",
-  "homepage": "http://ojjs.org/docs#GitHubButton",
+  "homepage": "http://ojjs.org/plugins.html#GitHubButton",
   "keywords": [
     "oj",
     "plugin",
